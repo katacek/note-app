@@ -1,5 +1,7 @@
 ## My Notes app
 
+;TLDR: any comments / tips / ideas for improvements are welcome! 
+
 Next.js app developed based following instructions:
 
 > From [this list](https://codewithhugo.com/coding-web-app-ideas/#notes-app), build the first application - Notes app
@@ -15,6 +17,8 @@ Use latest nextjs :)
 There are comments in the code as follows
 - QUESTION: comment can be added, areas of wonders for me
 - NOTE: note ;-)
+
+Plus I have added sections <code>Ideas what to improve</code>.
 
 The first commit is working version with local storage, then commented out and made it work with IndexedBD.
 
