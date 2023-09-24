@@ -1,10 +1,8 @@
 import Head from "next/head";
 import React from "react";
 
-// import styles from "@/styles/Home.module.css";
-import Notes from "@/components/notes";
+import Notes from "../components/notes";
 import AppHeader from "../components/app-header";
-
 
 export default function Home() {
   return (
@@ -19,11 +17,12 @@ export default function Home() {
         <AppHeader />
         <Notes />
         <div>
+          <h3>Ideas what to improve</h3>
           <ul>
-            <li>Check the styles: classes not used, single / double quotes</li>
-            <li>Style modal, buttons, textarea ...</li>
-            <li>Make the code look nice</li>
-            <li>Use IndexDB instead of local storage</li>
+            <li>Use library for better styles: buttons, modals, alert</li>
+            <li>Handle errors: for devs and for user</li>
+            <li>Play with styling: colorful notes, lines, ..</li>
+            <li>Improve functionality: retrieve notes notes from db in the original order, update notes, drag and drop notes, group notes, ..</li>
           </ul>
         </div>
       </main>

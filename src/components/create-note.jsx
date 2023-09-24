@@ -1,14 +1,14 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default function CreateNote({ textHandler, saveHandler, inputText }) {
   return (
-    <div className='note'>
+    <div className="note">
       <div className="note-text">
       <textarea
         cols="10"
         rows="9"
-        placeholder="Type...."
+        placeholder="Type now means remember later...."
         value={inputText}
         maxLength="100"
         onChange={textHandler}

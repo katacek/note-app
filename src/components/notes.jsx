@@ -1,7 +1,10 @@
-import { React, useEffect, useState } from "react";
-import Note from "./Note";
+import React, { useEffect, useState } from "react";
+
+import Note from "./note";
 import CreateNote from "./create-note";
 import Modal from "./modal";
+import { db } from "./database";
+
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -10,9 +13,15 @@ export default function Notes() {
   const Toggle = () => setModal(!modal);
 
   useEffect(() => {
-    const savedNotes = localStorage.getItem("notes");
-    console.log({savedNotes})
-    if (savedNotes) setNotes(JSON.parse(savedNotes));
+    // Note: commented, used in local storage solution
+    // const savedNotes = localStorage.getItem("notes");
+
+    // Question: is this correct -> or can I get the data from IndexedDB better at the beginning?
+    const getSavedNotes = async () => {
+        const savedNotes = await db.notes.toArray();
+        if (savedNotes) setNotes(savedNotes);
+    }
+    getSavedNotes();
   }, [])
 
   // get text and store in state
@@ -20,35 +29,44 @@ export default function Notes() {
     setInputText(e.target.value);
   };
 
-  // add new note to the state array
-  const saveHandler = () => {
+  // add new note to the state and to the db
+  const saveHandler = async () => {
+
     // return warning modal if no text 
     if (inputText === "") {
       Toggle();
       return;
     }
 
+    const newNote = {
+        // QUESTION: is it worth to import uuid for such a small app?
+        id: Math.random().toString(),
+        text: inputText,
+      };
+
     const newNotes = [
         ...notes,
-        {
-          id: Math.random().toString(),
-          text: inputText,
-        },
+        newNote,
       ];
-    // set to state
     setNotes(newNotes);
 
-    localStorage.setItem('notes', JSON.stringify(newNotes));
-    //clear the textarea
+    // Note: commented, used in local storage solution
+    // localStorage.setItem('notes', JSON.stringify(newNotes));
+
+    await db.notes.add(newNote);
+
     setInputText("");
   };
 
-  //delete note function
-  const deleteNote = (id) => {
+  const deleteNote = async (id) => {
     const filteredNotes = notes.filter((note) => note.id !== id);
     setNotes(filteredNotes);
-    localStorage.setItem('notes', JSON.stringify(filteredNotes));
+
+    // localStorage.setItem('notes', JSON.stringify(filteredNotes));
+
+    await db.notes.delete(id);
   };
+
   return (
     <>
         <Modal
@@ -56,8 +74,7 @@ export default function Notes() {
           close={Toggle}
           title="Missing text for the note"
           text="Write something..." 
-        />
-          
+        />       
         <div className="notes">
             {notes.map((note) => (
                 <Note

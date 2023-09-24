@@ -1,6 +1,8 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
+// Question: probably much better to use existing libraries, right?
+// Just wanted to try it like this but the current styling deserves more love..
 export default function Modal({ show, close, title, text }) {
   return (
     <>
@@ -8,11 +10,11 @@ export default function Modal({ show, close, title, text }) {
         <div onClick={() => close()}>
           <div className="modal-container" onClick={(e) => e.stopPropagation()}>
             <div className="modal">
-                <header className="modal_header">
-                    <h2 className="modal_header-title">{title}</h2>
+                <header>
+                    <h2>{title}</h2>
                 </header>
-                <main className="modal_content">{text}</main>
-                <button className="close" onClick={() => close()}>
+                <main>{text}</main>
+                <button onClick={() => close()}>
                     I see
                 </button>
             </div>

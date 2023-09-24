@@ -1,3 +1,4 @@
+/* I kept this styling from the original next.js app template */
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -106,9 +107,15 @@ a {
   }
 }
 
+/* Added styles */
+/* QUESTION: better rem / px ? */
 .main {
   padding: 2rem 6rem;
   min-height: 100vh;
+}
+
+h3, ul {
+  margin: 1rem;
 }
 
 .center {
@@ -123,7 +130,7 @@ a {
   display: flex;
   gap: 2rem;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .note {
@@ -132,7 +139,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border:1px solid whitesmoke;
+  border: 1px solid whitesmoke;
   border-radius: 5px;
 }
 
@@ -146,8 +153,10 @@ a {
   justify-content: flex-end;
 }
 
+/* Uf uf, still not good, god bless libraries */
+/* But nice practice :) */
 .modal-container {
-  position: fixed; /* Stay in place front is invalid - may break your css so removed */  
+  position: fixed; /* Stay in place front is invalid - may break your css so removed */
   padding-top: 100px; /* Location of the box - don't know what this does?  If it is to move your modal down by 100px, then just change top below to 100px and remove this*/
   left: 0;
   right:0; /* Full width (left and right 0) */
@@ -162,7 +171,7 @@ a {
 .modal {
   position: relative;
   padding: 4rem 0;
-  background-color: blue;
+  background-color: grey;
   text-align: center;
 }
 

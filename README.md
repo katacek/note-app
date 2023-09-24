@@ -10,9 +10,9 @@ Use latest nextjs :)
 1. Goal 1: Make it work with local storage ✔️
 2. Goal 2: Make it look nice
 3. Goal 3: Make the code look nice
-4. Goal 4: Use IndexDB instead of local storage
+4. Goal 4: Use IndexDB instead of local storage ✔️
 
-It still work in progress, current state video below
+The first commit is working version with local storage, then commented out and made it with IndexedBD.
 
 
 https://github.com/katacek/note-app/assets/56041262/1e0d65b8-e7cf-4065-bf1b-4e41a197a7b0
