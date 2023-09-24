@@ -23,6 +23,7 @@ export default function Home() {
             <li>Handle errors: for devs and for user</li>
             <li>Play with styling: colorful notes, lines, ..</li>
             <li>Improve functionality: retrieve notes notes from db in the original order, update notes, drag and drop notes, group notes, ..</li>
+            <li>Write tests...</li>
           </ul>
         </div>
       </main>
