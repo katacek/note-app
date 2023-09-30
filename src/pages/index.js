@@ -4,6 +4,15 @@ import React from "react";
 import Notes from "../components/notes";
 import AppHeader from "../components/app-header";
 
+// FEEDBACK
+// Libs:
+// Using Dexie was cheating a little :D It's cool that it makes everything easier, 
+// but the library is absolutely massive considering that index DB is pretty straightforward to use and is not that complicated.
+
+// React:
+// The modal is good solution, maybe if you try to implement it yourself again, try to do it in a portal. 
+// It's not important here, but reusable modals are usually better with portals so that they can be shown from anywhere in the app.
+
 export default function Home() {
   return (
     <>
